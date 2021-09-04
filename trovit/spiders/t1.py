@@ -1,5 +1,5 @@
 import scrapy
-
+#hhhhhhhh
 from scrapy.crawler import CrawlerProcess
 class T1Spider(scrapy.Spider):
     name = 't1'
@@ -12,12 +12,12 @@ class T1Spider(scrapy.Spider):
     }
     def __init__(self):
         url = 'https://homes.trovit.com/ny/'
-        
+
         for page in range(1, 6):
             self.start_urls.append(url + str(page))
 
     def parse(self, response):
-        
+
         w=response.css('div.snippet-wrapper.js-item-wrapper')
         for h in w:
             yield{
@@ -27,7 +27,7 @@ class T1Spider(scrapy.Spider):
                 'des':h.css('div.item-description p::text').get()
 
             }
-        
+
        # next_page = f"https://homes.trovit.com/ny/{T1Spider.pn}"
        # if  T1Spider.pn<=50:
 
@@ -35,4 +35,4 @@ class T1Spider(scrapy.Spider):
           #  yield response.follow(next_page, callback=self.parse)
 
 
-         
+
